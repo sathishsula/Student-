@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URL, {
     // useFindAndModify: false
 })
 .then(() => {
-    console.log("MongoDB connection success!");
+    console.log("MongoDB connection success!!!");
 })
 .catch((error) => {
     console.error("MongoDB connection error:", error);
@@ -30,6 +30,10 @@ mongoose.connect(process.env.MONGODB_URL, {
 // For example:
 // const userRoutes = require('./routes/userRoutes');
 // app.use('/users', userRoutes);
+
+const studentRoutes = require("./routes/students.js");
+
+app.use("/student",studentRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port : ${PORT}`);
